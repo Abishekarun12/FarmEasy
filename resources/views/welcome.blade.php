@@ -44,7 +44,7 @@
         <section>
             <div class="container mx-auto px-6 sm:px-12 flex flex-col-reverse sm:flex-row items-center gap-10 ">
                 <div class=" flex flex-col items-start mt-8 sm:mt-0 ">
-                    <h1 class="text-4xl lg:text-6xl leading-none mb-4"><strong class="font-black">
+                    <h1 class="text-4xl lg:text-6xl leading-none mb-4 pt-20"><strong class="font-black">
                         A Farmer's Helper
                     </strong>
                         <br>

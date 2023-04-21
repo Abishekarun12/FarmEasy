@@ -1,6 +1,7 @@
 <x-guest-layout>
-    <div class="font-sans min-h-screen antialiased bg-white-900 pt-24 pb-5">
-        <div class="flex flex-col justify-center sm:w-96 sm:m-auto mx-5 mb-5 space-y-8">
+    {{-- <div class="font-sans min-h-screen antialiased pt-24 pb-5"> --}}
+ {{-- <div style="background-image: url('{{ asset('images/1676902767_WhatsApp Image 2022-12-26 at 11.38.48 PM.jpeg') }}');background-size: cover;" class="font-sans min-h-screen antialiased pt-24 pb-5"> --}}
+      <div class="flex flex-col justify-center sm:w-96 sm:m-auto mx-5 mb-5 space-y-8">
           <h1 class="font-bold text-center text-5xl text-yellow-500">Admin<span class="text-green-700">Login</span></h1>
             <!-- Session Status -->
             <x-auth-session-status class="mb-4" :status="session('status')" />

@@ -18,9 +18,9 @@
 
     <div class="max-w-10xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-green overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-12 bg-green border-b border-white-200">
-                    <a href="{{ route('admin.posts.index')}}">Try nowww.. &rarr;</a>
-                </div>
+                
+                <a href="https://abishek-portfolio.vercel.app/"
+                        class="font-semibold text-lg bg-blue-500 hover:bg-blue-400 text-white py-3 px-10 rounded-full">Creators</a>
             </div>
     {{-- <div class="table-responsive">
             <table class="text-left w-full border-collapse">
