@@ -3,10 +3,13 @@
                 <div class="flex items-center">
                     {{-- <img class="h-18 w-12" viewBox="0 0 612 512" src="https://i.pinimg.com/originals/cd/b0/82/cdb082cdb7b2a801a6ca0548524709d7.png" alt="">
                      --}}
-                     <img class="h-23 w-20" viewBox="0 0 612 512" src="{{ asset('images/logo.png') }}" alt="farmeasy">                       
+                     <img class="h-32 w-20" viewBox="0 0 612 512" src="{{ asset('images/logo.png') }}" alt="FosterHome">                       
 
                     <a href="{{ route('admin.dashboard') }}">
-                        <span class="text-white text-2xl mx-2 font-semibold" style="font-family:cursive">Farm Easy</span>
+                        
+                        <span class="text-white text-2xl mx-2 font-semibold" style="font-family:cursive">
+                        Foster Home</span>
+                        
                     </a>
                 </div>
             </div>
