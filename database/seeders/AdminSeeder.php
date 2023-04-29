@@ -25,20 +25,6 @@ class AdminSeeder extends Seeder
         ]);
 
         $admin = User::create([
-            'name'=>'Aishwarya',
-            'email'=>'aishwarya173k@gmail.com',
-            'password'=>bcrypt('password'),
-            // 'profile' => 'user.avif'
-        ]);
-
-        $admin = User::create([
-            'name'=>'Maha Maadu',
-            'email'=>'mahalakshmi9227@gmail.com',
-            'password'=>bcrypt('password'),
-            // 'profile' => 'user.avif'
-        ]);
-
-        $admin = User::create([
             'name'=>'Abishek',
             'email'=>'abiarun7708@gmail.com',
             'password'=>bcrypt('password'),

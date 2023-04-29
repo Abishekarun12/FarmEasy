@@ -23,7 +23,6 @@
            value="{{ old('file') }}">
           </div>
                     
-
            {{-- <div class="flex flex-col space-y-2">
             <label for="file" class="text-gray-700 select-none font-medium">Upload Your Guidance</label>
             <input id="file" type="file" name="file" value="{{ old('file') }}"
