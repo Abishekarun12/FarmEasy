@@ -19,7 +19,7 @@ class CreatePostsTable extends Migration
             $table->text('description');
             $table->array('file');
             $table->array('video');
-            // $table->array('image');
+            $table->array('image');
             $table->unsignedBigInteger('user_id');
             $table->boolean('publish')->default(0);
             $table->timestamps();

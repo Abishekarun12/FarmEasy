@@ -24,9 +24,9 @@
 
                         @if (Route::has('login'))
                             @auth('front')
-                                {{-- <a href="{{ url('/dashboard') }}" class="py-2 px-6 flex hover:text-blue-500">Dashboard</a> --}}
+                                <a href="{{ url('/dashboard') }}" class="py-2 px-6 flex hover:text-blue-500">Dashboard</a>
                             @else
-                                {{-- <a href="{{ route('login') }}" class="py-2 px-6 flex hover:text-blue-500">Log in</a> --}}
+                                <a href="{{ route('login') }}" class="py-2 px-6 flex hover:text-blue-500">Log in</a>
                                 @if (Route::has('register'))
                                     <a href="{{ route('register') }}"
                                         class="ml-4 py-2 px-6 flex hover:text-blue-500">Register</a>

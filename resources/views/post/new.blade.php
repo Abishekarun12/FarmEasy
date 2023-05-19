@@ -18,38 +18,36 @@
           </div>
 
           <div class="flex flex-col space-y-2">
-             <label for="title" class="text-gray-700 select-none font-medium">Upload Audio File</label>
+             <label for="title" class="text-gray-700 select-none font-medium">Upload File</label>
            <input type="file"
            name="file"
            class="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200"
            value="{{ old('file') }}">
           </div>
-<<<<<<< HEAD
-
-          <div class="flex flex-col space-y-2">
+          {{-- {{-- <div class="flex flex-col space-y-2">
             <label for="title" class="text-gray-700 select-none font-medium">Upload image File</label>
           <input type="file"
           name="image"
           class="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200"
           value="{{ old('image') }}">
-         </div>
+         </div> --}}
 
 
-       <div class="flex flex-col space-y-2">
+       {{-- <div class="flex flex-col space-y-2">
             <label for="title" class="text-gray-700 select-none font-medium">Video File</label>
           <input type="file"
           name="video"
           class="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200"
           value="{{ old('video') }}">
-         </div> 
+         </div>  --}}
 
-         <div class="flex flex-col space-y-2">
+         {{-- <div class="flex flex-col space-y-2">
           <label for="title" class="text-gray-700 select-none font-medium">audio File</label>
         <input type="file"
         name="audio"
         class="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200"
         value="{{ old('audio') }}">
-       </div>
+       </div> --}}
 
          {{-- <div class="flex flex-col space-y-2">
           <label for="title" class="text-gray-700 select-none font-medium">Upload Image</label>
@@ -59,7 +57,7 @@
         value="{{ old('file') }}">
        </div>  --}}
               
-=======
+
                     
            {{-- <div class="flex flex-col space-y-2">
             <label for="file" class="text-gray-700 select-none font-medium">Upload Your Guidance</label>
@@ -67,7 +65,7 @@
                class="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200"
             />
            </div> --}}
->>>>>>> 27798659a6ed23254fc5beae89f1e0e2b44c4951
+
 
           <h3 class="text-xl my-4 text-gray-600">Role</h3>
           <div class="grid grid-cols-3 gap-4">

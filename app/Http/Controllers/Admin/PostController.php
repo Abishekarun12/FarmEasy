@@ -78,7 +78,24 @@ class PostController extends Controller
 }
     public function store(Request $request)
     {
-        dd('post suceeded');
+        
+        // $path = $file->store('public/audio');
+        // $path = Storage::disk('local')->put('public/audio', $file);
+        // $ldate =date('Y-m-d H:i:s');
+        // dd($ldate);
+        // $file = $request->file('file');
+        // $filename = time() . '_' . $file->getClientOriginalName();
+        // $path = $file->storeAs('public/audio', $filename);
+        // $data= $request->all();
+        // $data['user_id'] = Auth::user()->id;
+
+
+
+        // $Post = Post::create($data);
+        
+    
+
+        // dd('post suceeded');
         // $data = new Post();
         // $file = $request->file;
         // $filename=time().'.'.$file->getClientOriginalExtension();
@@ -87,13 +104,30 @@ class PostController extends Controller
         // $file->move(public_path('/assets'), end($filename));
         // $request = Storage::url($request);
         // $data->file=$filename;
+    $file = $request->file('file');
+    $filename = time() . '_' . $file->getClientOriginalName();
+    if ($file->getClientOriginalExtension() === 'mp3') {
+        $directory = 'public/audio';
+    } elseif (in_array($file->getClientOriginalExtension(), ['jpg', 'jpeg', 'png', 'gif'])) {
+        $directory = 'public/images';
+    } else {
+        $directory = 'public/videos';
+    }
+    $path = $file->storeAs($directory, $filename);
+    $data = $request->all();
+    // $path = $file->storeAs('public/audio', $filename);
 
+    $data= $request->all();
+    $data['user_id'] = Auth::user()->id;
+    $Post = Post::create($data);
+    return redirect()->back()->withSuccess('Post created !!!');
+    // return redirect()->back()->withSuccess('Post created !!!');
+    //     return redirect()->back()->with('success', 'Audio uploaded successfully.');
+    
+    // return redirect()->back()->with('success', 'Audio uploaded successfully.');
 
         //Info Collection
-        $data= $request->all();
-        $data['user_id'] = Auth::user()->id;
-        $Post = Post::create($data);
-        return redirect()->back()->withSuccess('Post created !!!');
+       
     }
 
     /**

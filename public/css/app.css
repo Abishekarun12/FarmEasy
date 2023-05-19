@@ -78,9 +78,6 @@ Grouping content
 */
 
 
-
-
-
 .bcake{
   max-width: 800px;
   border-radius: 4px;
@@ -101,7 +98,7 @@ Grouping content
 
 .bcake__content{
   flex: 1;
-  background: white;
+  background: rgba(255, 255, 255, 0.062);
   padding: 35px 25px;
   
   display: flex;
