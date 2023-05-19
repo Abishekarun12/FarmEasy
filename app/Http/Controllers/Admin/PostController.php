@@ -78,24 +78,22 @@ class PostController extends Controller
 }
     public function store(Request $request)
     {
-        
-        
-        // $ldate =date('Y-m-d H:i:s');
-        // dd($ldate);
-        // $file = $request->file('file');
-        // $filename = time() . '_' . $file->getClientOriginalName();
-        // $path = $file->storeAs('public/audio', $filename);
+        dd('post suceeded');
+        // $data = new Post();
+        // $file = $request->file;
+        // $filename=time().'.'.$file->getClientOriginalExtension();
+        // // $request->$filename()->move('assets',$file);
+        // // $path = $request->file('file')->storeAs('assets', $filename);
+        // $file->move(public_path('/assets'), end($filename));
+        // $request = Storage::url($request);
+        // $data->file=$filename;
+
+
+        //Info Collection
         $data= $request->all();
         $data['user_id'] = Auth::user()->id;
-
-
-
         $Post = Post::create($data);
         return redirect()->back()->withSuccess('Post created !!!');
-        return redirect()->back()->with('success', 'Audio uploaded successfully.');
-    
-    
-       
     }
 
     /**
@@ -106,7 +104,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('post.index',['post' => $post]);
     }
 
     /**

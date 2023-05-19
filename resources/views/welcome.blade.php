@@ -1,6 +1,7 @@
 <x-front-guest-layout>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700,900&display=swap" rel="stylesheet">
-    <main style="background-image: url('{{ asset('images/bgvideo.gif') }}');background-size: cover;"
+
+    <main style="background-image: url('{{ asset('images/orphans.jpg') }}');background-size: cover;"
      class="font-montserrat">
     {{-- <main class="bg-white font-montserrat"> --}}
         <header class="h-24 sm:h-32 pt-6 flex items-center">
@@ -10,7 +11,11 @@
                     <div class="w-24 h-18 mr-6">
                         <img src="{{ asset('images/logo.png') }}" alt="">
                     </div>
-                    <span><strong>Farm Easy </strong></span>
+                    <span>Foster
+                        <br>
+                        Homes
+                    </span>
+                        <br>
                 </div>
                 <div class="flex items-center">
                     <nav class="text-pink text-lg hidden lg:flex items-center">
@@ -21,9 +26,9 @@
 
                         @if (Route::has('login'))
                             @auth('front')
-                                <a href="{{ url('/dashboard') }}" class="py-2 px-6 flex hover:text-blue-500">Dashboard</a>
+                                {{-- <a href="{{ url('/dashboard') }}" class="py-2 px-6 flex hover:text-blue-500">Dashboard</a> --}}
                             @else
-                                <a href="{{ route('login') }}" class="py-2 px-6 flex hover:text-blue-500">Log in</a>
+                                {{-- <a href="{{ route('login') }}" class="py-2 px-6 flex hover:text-blue-500">Log in</a> --}}
                                 @if (Route::has('register'))
                                     <a href="{{ route('register') }}"
                                         class="ml-4 py-2 px-6 flex hover:text-blue-500">Register</a>
@@ -43,8 +48,11 @@
         <section>
             <div class="container mx-auto px-6 sm:px-12 flex flex-col-reverse sm:flex-row items-center gap-10 ">
                 <div class=" flex flex-col items-start mt-8 sm:mt-0 ">
-                    <h1 class="text-4xl lg:text-6xl leading-none mb-4 pt-20"><strong class="font-black">
-                        A Farmer's Helper
+                    <br>
+                    <h1 class="text-4xl lg:text-6xl leading-none mb-4"><strong class="font-black">
+                       Gift a Better Future 
+                       <br>
+                       To Orphans
                     </strong>
                         <br>
                          Web
@@ -56,7 +64,7 @@
                          </p>
                         <br>
                     <a href="https://abishek-portfolio.vercel.app/"
-                        class="font-semibold text-lg bg-green-500 hover:bg-blue-400 text-white py-3 px-10 rounded-full">Creators</a>
+                        class="font-semibold text-lg bg-green-500 hover:bg-blue-400 text-white py-3 px-10 rounded-full">Developed By</a>
                 </div>
             </div>
         </section>
@@ -113,27 +121,13 @@
           </figure>
 
         <section class="container mx-auto px-6 sm:px-12">
-            <div>
-                {{-- <form action="{{ route('delete.file') }}" method="POST"> --}}
-                    {{-- @csrf --}}
-                {{-- @foreach(Storage::files('public/audio') as $file)
-             <h2 style="color: red; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">{{ basename($file) }}</h2> --}}
-             {{-- <option value="{{ $file }}">{{ basename($file) }}</option> --}}
-            <br>
-             {{-- <video width="640" height="360" controls>
-                 <source src="{{ asset(Storage::url($file)) }}" type="audio/mpeg">
-                             Your browser does not support the audio tag.
-                 </video>
-                 <br>    
-            <button class="font-semibold text-lg bg-red-500 hover:bg-grey-400 text-white py-1 px-8 rounded-full"type="submit">Delete File</button>
-            <br>
-            <br>
-             <a href="{{ asset(Storage::url($file)) }}"
-             class="font-semibold text-lg bg-blue-500 hover:bg-grey-400 text-white py-1 px-8 rounded-full">Download Audio
-            </a>
-            @endforeach
-            </div> --}}
-            
+            <div >
+                <img src="{{ asset('images/gift.png') }}" alt="">
+                {{-- <iframe width="560" height="315" src="https://www.youtube.com/embed/JzPfMbG1vrE"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe> --}}
+            </div>
         </section>
 
 
