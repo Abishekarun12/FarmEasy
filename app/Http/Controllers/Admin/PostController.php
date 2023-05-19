@@ -5,6 +5,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use Auth;
+use Carbon\Carbon;
+
 class PostController extends Controller
 {
     /**
@@ -48,24 +50,52 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+     public function storeFiles(Request $request)
+{
+    $audio = $request->file('audio');
+    $video = $request->file('video');
+    $image = $request->file('image');
+
+    // Store audio file
+    if ($audio) {
+        $audioPath = Storage::disk('local')->put('audio', $audio);
+    }
+
+    // Store video file
+    if ($video) {
+        $videoPath = Storage::disk('local')->put('video', $video);
+    }
+
+    // Store image file
+    if ($image) {
+        $imagePath = Storage::disk('local')->put('image', $image);
+    }
+
+    // Additional logic...
+
+    return redirect()->back()->with('success', 'Files uploaded successfully.');
+}
     public function store(Request $request)
     {
-        dd('post suceeded');
-        // $data = new Post();
-        // $file = $request->file;
-        // $filename=time().'.'.$file->getClientOriginalExtension();
-        // // $request->$filename()->move('assets',$file);
-        // // $path = $request->file('file')->storeAs('assets', $filename);
-        // $file->move(public_path('/assets'), end($filename));
-        // $request = Storage::url($request);
-        // $data->file=$filename;
-
-
-        //Info Collection
+        
+        
+        // $ldate =date('Y-m-d H:i:s');
+        // dd($ldate);
+        // $file = $request->file('file');
+        // $filename = time() . '_' . $file->getClientOriginalName();
+        // $path = $file->storeAs('public/audio', $filename);
         $data= $request->all();
         $data['user_id'] = Auth::user()->id;
+
+
+
         $Post = Post::create($data);
         return redirect()->back()->withSuccess('Post created !!!');
+        return redirect()->back()->with('success', 'Audio uploaded successfully.');
+    
+    
+       
     }
 
     /**

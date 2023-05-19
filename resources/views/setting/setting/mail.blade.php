@@ -7,7 +7,6 @@
                 <form method="POST" action="{{ route('admin.mail.update',$mail->id)}}">
                   @csrf
                   @method('put')
-
                 <div class="flex flex-wrap -mx-3 mb-2">
                     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                       <label class="block tracking-widetext-gray-700 select-none font-medium mb-2" for="grid-first-name">

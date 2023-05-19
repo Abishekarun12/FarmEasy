@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/* 
+Grecian Blue: #2988BC
+Sea: #2F496E
+Plaster: #F4EADE
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  color: #444;
+  font-family: Roboto;
+  padding: 50px;
+  background: linear-gradient(to bottom right, #F4EADE, #2988BC, #2F496E);
+  height: 100vh;
+  
+  display: flex;
+/* cross axis y */
+  align-items: center;
+/* main axis x */
+  justify-content: center;
+}
+
+.bcake{
+  max-width: 800px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px 10px rgba(0,0,0,.2);
+  
+  display: flex;
+}
+
+.bcake__hero{
+  flex: 0 0 45%;
+}
+
+.bcake__img{
+  width: 100%;
+  display: block;
+}
+
+.bcake__content{
+  flex: 1;
+  background: white;
+  padding: 35px 25px;
+  
+  display: flex;
+  flex-direction: column;
+}
+
+.bcake__price{
+  flex: 0 0 50px;
+  background: linear-gradient(to bottom, #2988BC, #2F496E);
+  writing-mode: vertical-rl;
+  color: white;
+  font-size: 18px;
+  
+  display: flex;
+  align-items: center;
+  justify-content:center;
+}
+
+.bcake__title{
+  display: flex;
+  align-items: center;
+  margin-bottom:20px;
+}
+
+.bcake__heading{
+  font-size: 20px;
+  margin-right: auto;
+}
+
+.bcake__tag{
+  font-size: 10px;
+  text-transform: uppercase;
+  color: white;
+  padding: 2px 7px;
+  border-radius: 50px;
+  margin-left: 6px;
+}
+
+.bcake__tag--1{
+  background-color:  #2988BC;
+}
+
+.bcake__tag--2{
+  background-color: #2F496E;
+}
+
+.bcake__description{
+  font-size: 14px;
+  text-align: justify;
+}
+
+.bcake__details{
+  display: flex;
+  margin-top: auto;
+}
+
+.bcake__detail{
+  font-size: 14px;
+  text-transform: uppercase;
+  margin-right: 20px;
+  font-weight: 700;
+  
+  display: flex;
+  align-items: center;
+}
+
+.emoji{
+  font-size: 20px;
+  margin-right: 3px;
+}

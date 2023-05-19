@@ -3,13 +3,10 @@
                 <div class="flex items-center">
                     {{-- <img class="h-18 w-12" viewBox="0 0 612 512" src="https://i.pinimg.com/originals/cd/b0/82/cdb082cdb7b2a801a6ca0548524709d7.png" alt="">
                      --}}
-                     <img class="h-32 w-20" viewBox="0 0 612 512" src="{{ asset('images/logo.png') }}" alt="FosterHome">                       
+                     <img class="h-23 w-20" viewBox="0 0 612 512" src="{{ asset('images/logo.png') }}" alt="farmeasy">                       
 
                     <a href="{{ route('admin.dashboard') }}">
-                        
-                        <span class="text-white text-2xl mx-2 font-semibold" style="font-family:cursive">
-                        Foster Home</span>
-                        
+                        <span class="text-white text-2xl mx-2 font-semibold" style="font-family:cursive">Farm Easy</span>
                     </a>
                 </div>
             </div>
@@ -79,8 +76,7 @@
                 </a>
                 @endcanany
 
-
-                @canany('Mail access','Mail edit')
+                @canany('Post access','Post add','Post edit','Post delete')
                  <a class="flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ Route::currentRouteNamed('admin.mail.index') ? 'active' : '' }}"
                     href="{{ route('admin.mail.index')}}">
                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -93,8 +89,8 @@
                 </a>
                 @endcanany
 
-
                 
+ 
             </nav>
         </div>
         

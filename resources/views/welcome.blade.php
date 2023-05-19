@@ -1,7 +1,6 @@
 <x-front-guest-layout>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700,900&display=swap" rel="stylesheet">
-
-    <main style="background-image: url('{{ asset('images/orphans.jpg') }}');background-size: cover;"
+    <main style="background-image: url('{{ asset('images/bgvideo.gif') }}');background-size: cover;"
      class="font-montserrat">
     {{-- <main class="bg-white font-montserrat"> --}}
         <header class="h-24 sm:h-32 pt-6 flex items-center">
@@ -11,11 +10,7 @@
                     <div class="w-24 h-18 mr-6">
                         <img src="{{ asset('images/logo.png') }}" alt="">
                     </div>
-                    <span>Foster
-                        <br>
-                        Homes
-                    </span>
-                        <br>
+                    <span><strong>Farm Easy </strong></span>
                 </div>
                 <div class="flex items-center">
                     <nav class="text-pink text-lg hidden lg:flex items-center">
@@ -63,22 +58,84 @@
                     <a href="https://abishek-portfolio.vercel.app/"
                         class="font-semibold text-lg bg-green-500 hover:bg-blue-400 text-white py-3 px-10 rounded-full">Creators</a>
                 </div>
-                {{-- <div class="mb-4 sm:mb-12">
-                    <img src="https://media4.giphy.com/media/eh0X7QwmxiXihecJud/giphy.gif?cid=6c09b952quzttq69muk85q0zrpmg4wd5atf34meb1aj6evfk&rid=giphy.gif&ct=s"
-                        alt="">
-                </div> --}}
             </div>
         </section>
 
-        <section class="container mx-auto px-6 sm:px-12">
-            <div >
-                <img src="{{ asset('images/gift.png') }}" alt="">
-                {{-- <iframe width="560" height="315" src="https://www.youtube.com/embed/JzPfMbG1vrE"
-                    title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen></iframe> --}}
+        <figure class='bcake'>
+            <div class='bcake__hero'>
+              {{-- <img src="https://images.unsplash.com/photo-1552689486-f6773047d19f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=3302&q=80" alt="birthday-cake" class="bcake__img"> --}}
+              @foreach(Storage::files('public/audio') as $file)
+             
+              <video width="640" height="360" controls>
+                  <source src="{{ asset(Storage::url($file)) }}" type="audio/mpeg">
+                              Your browser does not support the audio tag.
+                  </video>
+                  <br>    
+             <button class="font-semibold text-lg bg-red-500 hover:bg-grey-400 text-white py-1 px-8 rounded-full"type="submit">Delete File</button>
+             <br>
+             <br>
+              <a href="{{ asset(Storage::url($file)) }}"
+              class="font-semibold text-lg bg-blue-500 hover:bg-grey-400 text-white py-1 px-8 rounded-full">Download Audio
+             </a>
+             @endforeach
             </div>
+            <div class="bcake__content">
+              <div class="bcake__title">
+                <h2 class="bcake__heading">
+                    <h2 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif"><strong>{{ basename($file) }}</strong></h2>
+                    {{-- <option value="{{ $file }}">{{ basename($file) }}</option> --}}
+                   <br>
+                </h1>
+                <div class="bcake__tag bcake__tag--1">#Colorful</div>
+                <div class="bcake__tag bcake__tag--2">#bakemaster</div>
+              </div>
+               <p class="bcake__description">
+              Perfect for a party, this rainbow-cake screams 'celebrate'! Super creamy vanilla icing fill with moist for a showstopping cake that adults and kids will love.
+            </p>
+              <div class="bcake__details">
+                <p class="bcake__detail">
+                  <span class="emoji">🎉</span>
+                  450 Kcal
+                </p>
+                <p class="bcake__detail">
+                  <span class="emoji">⏱</span>
+                  30 min
+                </p>
+                <p class="bcake__detail">
+                  <span class="emoji">🌟</span>
+                  highly rated
+                </p>
+              </div>
+            </div>
+            <div class="bcake__price">
+              $ 12.99
+            </div>
+          </figure>
+
+        <section class="container mx-auto px-6 sm:px-12">
+            <div>
+                {{-- <form action="{{ route('delete.file') }}" method="POST"> --}}
+                    {{-- @csrf --}}
+                {{-- @foreach(Storage::files('public/audio') as $file)
+             <h2 style="color: red; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">{{ basename($file) }}</h2> --}}
+             {{-- <option value="{{ $file }}">{{ basename($file) }}</option> --}}
+            <br>
+             {{-- <video width="640" height="360" controls>
+                 <source src="{{ asset(Storage::url($file)) }}" type="audio/mpeg">
+                             Your browser does not support the audio tag.
+                 </video>
+                 <br>    
+            <button class="font-semibold text-lg bg-red-500 hover:bg-grey-400 text-white py-1 px-8 rounded-full"type="submit">Delete File</button>
+            <br>
+            <br>
+             <a href="{{ asset(Storage::url($file)) }}"
+             class="font-semibold text-lg bg-blue-500 hover:bg-grey-400 text-white py-1 px-8 rounded-full">Download Audio
+            </a>
+            @endforeach
+            </div> --}}
+            
         </section>
+
 
     </main>
 

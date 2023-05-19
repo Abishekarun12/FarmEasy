@@ -29,8 +29,8 @@ Route::get('/test-mail',function(){
 
     $message = "Testing mail";
 
-    \Mail::raw('Hi, welcome!', function ($message) {
-      $message->to('ajayydavex@gmail.com')
+    Mail::raw('Hi, welcome!', function ($message) {
+      $message->to('abiarun7708@gmail.com')
         ->subject('Testing mail');
     });
 
@@ -52,6 +52,13 @@ Route::get('/admin/dashboard', function () {
 })->middleware(['auth'])->name('admin.dashboard');
 
 require __DIR__.'/auth.php';
+
+// Route::post('/delete-file', function (Illuminate\Http\Request $request) {
+//     $file = $request->input('file');
+//     Storage::delete($file);
+//     return redirect()->back()->with('success', 'File has been deleted.');
+// })
+// ->middleware(['auth'])->name('delete.file');
 
 
 
