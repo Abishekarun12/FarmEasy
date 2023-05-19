@@ -1,7 +1,7 @@
 <x-front-guest-layout>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700,900&display=swap" rel="stylesheet">
 
-    <main style="background-image: url('{{ asset('images/orphans.jpg') }}');background-size: cover;"
+    <main style="background-image: url('{{ asset('images/bgvideo.gif') }}');background-size: cover;"
      class="font-montserrat">
     {{-- <main class="bg-white font-montserrat"> --}}
         <header class="h-24 sm:h-32 pt-6 flex items-center">
@@ -11,9 +11,7 @@
                     <div class="w-24 h-18 mr-6">
                         <img src="{{ asset('images/logo.png') }}" alt="">
                     </div>
-                    <span>Foster
-                        <br>
-                        Homes
+                    <span><strong>Farm Easy </strong>
                     </span>
                         <br>
                 </div>
@@ -50,12 +48,12 @@
                 <div class=" flex flex-col items-start mt-8 sm:mt-0 ">
                     <br>
                     <h1 class="text-4xl lg:text-6xl leading-none mb-4"><strong class="font-black">
-                       Gift a Better Future 
+                       A Farmer Helping
                        <br>
-                       To Orphans
+                       Webpage
                     </strong>
                         <br>
-                         Web
+                         Ak
                         </h1>
                         <br>
                     <p class="lg:text-lg mb-4 sm:mb-12">
