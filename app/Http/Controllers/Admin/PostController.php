@@ -29,9 +29,14 @@ class PostController extends Controller
      */
     public function index()
     {
-        $Post= Post::paginate(4);
+        $post=DB::table('post')->get();
+        return view('welcome', compact('title','post'));
 
-        return view('post.index',['posts'=>$Post]);
+        $Post= Post::paginate(4);
+        $post= Post::all();
+        $title = Post::pluck('title');
+        return view('welcome',compact('title')['posts'=>$Post]);
+        // return view('post.index',compact('title')['posts'=>$Post]);
     }
 
     /**
@@ -51,50 +56,8 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-     public function storeFiles(Request $request)
-{
-    $audio = $request->file('audio');
-    $video = $request->file('video');
-    $image = $request->file('image');
-
-    // Store audio file
-    if ($audio) {
-        $audioPath = Storage::disk('local')->put('audio', $audio);
-    }
-
-    // Store video file
-    if ($video) {
-        $videoPath = Storage::disk('local')->put('video', $video);
-    }
-
-    // Store image file
-    if ($image) {
-        $imagePath = Storage::disk('local')->put('image', $image);
-    }
-
-    // Additional logic...
-
-    return redirect()->back()->with('success', 'Files uploaded successfully.');
-}
     public function store(Request $request)
-    {
-        
-        // $path = $file->store('public/audio');
-        // $path = Storage::disk('local')->put('public/audio', $file);
-        // $ldate =date('Y-m-d H:i:s');
-        // dd($ldate);
-        // $file = $request->file('file');
-        // $filename = time() . '_' . $file->getClientOriginalName();
-        // $path = $file->storeAs('public/audio', $filename);
-        // $data= $request->all();
-        // $data['user_id'] = Auth::user()->id;
-
-
-
-        // $Post = Post::create($data);
-        
-    
-
+    {  
         // dd('post suceeded');
         // $data = new Post();
         // $file = $request->file;
@@ -108,19 +71,26 @@ class PostController extends Controller
     $filename = time() . '_' . $file->getClientOriginalName();
     if ($file->getClientOriginalExtension() === 'mp3') {
         $directory = 'public/audio';
+        $fileType = 'audio';
+
     } elseif (in_array($file->getClientOriginalExtension(), ['jpg', 'jpeg', 'png', 'gif'])) {
         $directory = 'public/images';
+        $fileType = 'image';
+
     } else {
         $directory = 'public/videos';
+        $fileType = 'video';
     }
-    $path = $file->storeAs($directory, $filename);
+    $path = $file->storeAs('public/' . $directory, $filename);
     $data = $request->all();
     // $path = $file->storeAs('public/audio', $filename);
-
+    $posts = Post::all();
+    $title = Post::pluck('title');
     $data= $request->all();
     $data['user_id'] = Auth::user()->id;
     $Post = Post::create($data);
     return redirect()->back()->withSuccess('Post created !!!');
+    return view('post.index', compact('file','path','fileType','title','description','posts'));
     // return redirect()->back()->withSuccess('Post created !!!');
     //     return redirect()->back()->with('success', 'Audio uploaded successfully.');
     

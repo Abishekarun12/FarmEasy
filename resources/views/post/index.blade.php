@@ -20,7 +20,7 @@
               @can('Post access')
                 @foreach($posts as $post)
                 <tr class="hover:bg-grey-lighter">
-                  <td class="py-4 px-6 border-b border-grey-light">{{ $post->file }}</td>
+                  <td class="py-4 px-6 border-b border-grey-light">{{ $post->title  }}</td>
                   <td class="py-4 px-6 border-b border-grey-light">
                       @if($post->publish)
                       <span class="text-white inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-white bg-green-500 rounded-full">Publish</span>
