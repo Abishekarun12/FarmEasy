@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use Auth;
 use Carbon\Carbon;
+use Facade\FlareClient\Stacktrace\File;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File as FacadesFile;
 
 class PostController extends Controller
 {
@@ -30,7 +33,6 @@ class PostController extends Controller
     public function index()
     {
         $Post= Post::paginate(4);
-
         return view('post.index',['posts'=>$Post]);
     }
 
@@ -42,6 +44,17 @@ class PostController extends Controller
     public function create()
     {
         return view('post.new');
+    }
+
+    public function showFiles(){
+        $Post = Post::all();
+        //  $file = File::allFiles(public_path('storage/images')); 
+        
+        // return view('front.dashboard');
+        $audioFiles = Storage::files('public/audio');
+        $imageFiles = Storage::files('public/images');
+        $videoFiles = Storage::files('public/videos');
+        return view('front.dashboard', compact('audioFiles', 'imageFiles', 'videoFiles'));
     }
 
     /**
@@ -77,10 +90,7 @@ class PostController extends Controller
     $data= $request->all();
     $data['user_id'] = Auth::user()->id;
     $Post = Post::create($data);
-    return redirect()->back()->withSuccess('Post created !!!');
-    return view('post.index', compact('file','path','fileType','title','description',));
-        //Info Collection
-       
+    return redirect()->back()->withSuccess('Post created !!!');    
     }
 
     /**

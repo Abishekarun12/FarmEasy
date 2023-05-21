@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StripeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\Admin\{
     ProfileController,
@@ -34,6 +35,11 @@ Route::get('/products',[App\Http\Controllers\Admin\ProductController::class,'ind
 ->name('products.index');
 // Route::get('/product',[App\Http\Controllers\Admin\ProductController::class])
 
+Route::post('make/payment',[StripeController::class])->name('make.payment');
+
+Route::get('payment',[StripeController::class,'form'])->name('form.payment');
+Route::post('make/payment',[StripeController::class,'makepayment'])->name('make.payment');
+
 Route::get('/test-mail',function(){
 
     $message = "Testing mail";
@@ -47,10 +53,10 @@ Route::get('/test-mail',function(){
 
 });
 
-
-Route::get('/dashboard', function () {
-    return view('front.dashboard');
-})->middleware(['front'])->name('dashboard');
+Route::get('/dashboard','App\Http\Controllers\Admin\PostController@showFiles')->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('front.dashboard');
+// })->middleware(['front'])->name('dashboard');
 
 
 require __DIR__.'/front_auth.php';
