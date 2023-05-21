@@ -5,6 +5,8 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\Admin\{
     ProfileController,
     MailSettingController,
+    PostController,
+    ProductController,
 };
 
 /*
@@ -22,6 +24,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('welcome',[PostController::class,'Admin\PostController@show']);
+Route::get('welcome/{id}',[PostController::class,'Admin\PostController@show']);
+// Route::get('/','ProductController@index')->name('index');
+
+
 Route::get('/admin/upload',[PageController::class,'uploadpage']);
 
 
@@ -30,7 +37,7 @@ Route::get('/test-mail',function(){
     $message = "Testing mail";
 
     Mail::raw('Hi, welcome!', function ($message) {
-      $message->to('abiarun7708@gmail.com')
+      $message->to('abiakpro7708@gmail.com')
         ->subject('Testing mail');
     });
 

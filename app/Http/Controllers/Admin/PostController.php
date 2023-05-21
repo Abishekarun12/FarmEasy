@@ -29,14 +29,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        $post=DB::table('post')->get();
-        return view('welcome', compact('title','post'));
-
         $Post= Post::paginate(4);
-        $post= Post::all();
-        $title = Post::pluck('title');
-        return view('welcome',compact('title')['posts'=>$Post]);
-        // return view('post.index',compact('title')['posts'=>$Post]);
+
+        return view('post.index',['posts'=>$Post]);
     }
 
     /**
@@ -59,14 +54,7 @@ class PostController extends Controller
     public function store(Request $request)
     {  
         // dd('post suceeded');
-        // $data = new Post();
-        // $file = $request->file;
-        // $filename=time().'.'.$file->getClientOriginalExtension();
-        // // $request->$filename()->move('assets',$file);
-        // // $path = $request->file('file')->storeAs('assets', $filename);
-        // $file->move(public_path('/assets'), end($filename));
-        // $request = Storage::url($request);
-        // $data->file=$filename;
+       
     $file = $request->file('file');
     $filename = time() . '_' . $file->getClientOriginalName();
     if ($file->getClientOriginalExtension() === 'mp3') {
@@ -90,12 +78,7 @@ class PostController extends Controller
     $data['user_id'] = Auth::user()->id;
     $Post = Post::create($data);
     return redirect()->back()->withSuccess('Post created !!!');
-    return view('post.index', compact('file','path','fileType','title','description','posts'));
-    // return redirect()->back()->withSuccess('Post created !!!');
-    //     return redirect()->back()->with('success', 'Audio uploaded successfully.');
-    
-    // return redirect()->back()->with('success', 'Audio uploaded successfully.');
-
+    return view('post.index', compact('file','path','fileType','title','description',));
         //Info Collection
        
     }
@@ -108,6 +91,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
+       
         return view('post.index',['post' => $post]);
     }
 

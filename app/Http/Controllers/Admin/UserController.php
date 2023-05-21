@@ -66,6 +66,7 @@ class UserController extends Controller
             'name'=>$request->name,
             'email'=>$request->email,
             'password'=> bcrypt($request->password),
+            'mobile'=>$request->mobile,
         ]);
         $user->syncRoles($request->roles);
         return redirect()->back()->withSuccess('User created !!!');

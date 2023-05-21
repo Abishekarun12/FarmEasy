@@ -1,27 +1,53 @@
 <?php
 
-namespace Database\Seeders;
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
-use Illuminate\Database\Seeder;
 use App\Models\Mailsetting;
 
-class MailsettingSeeder extends Seeder
+
+class MailSettingController extends Controller
 {
+
     /**
-     * Run the database seeds.
+     * Display a listing of the resource.
      *
-     * @return void
+     * @return \Illuminate\Http\Response
      */
-    public function run()
+    function __construct()
     {
-        Mailsetting::create([
-            'mail_transport'            =>'smtp',
-            'mail_host'                 =>'smtp.mailtrap.io',
-            'mail_port'                 =>'2525',
-            'mail_username'             =>'ed3caa94a48fd1',
-            'mail_password'             =>'baf29d92154c72',
-            'mail_encryption'           =>'tls',
-            'mail_from'                 =>'abiakpro7708@gmail.com',
-        ]);
+        $this->middleware('role_or_permission:Mail access|Mail edit', ['only' => ['index']]);
+        $this->middleware('role_or_permission:Mail edit', ['only' => ['update']]);
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $mail= Mailsetting::find(1);
+
+        return view('setting.setting.mail',['mail'=>$mail]);
+    }
+
+    public function update(Request $request, Mailsetting $mailsetting)
+    {
+
+        $data = $request->validate([
+            'mail_transport'  =>'required',
+            'mail_host'       =>'required',
+            'mail_port'       =>'required',
+            'mail_username'   =>'required',
+            'mail_password'   =>'required',
+            'mail_encryption' =>'required',
+            'mail_from'       =>'required',
+        ]);
+
+        $mailsetting->update($data);
+        return redirect()->back()->withSuccess('Mail updated !!!');
+    }
+
 }

@@ -66,62 +66,53 @@
                 </div>
             </div>
         </section>
-        @foreach(Storage::files('public/audio') as $file)
-             
-        <figure class='bcake'>
-            <div class='bcake__hero'>
-              {{-- <img src="https://images.unsplash.com/photo-1552689486-f6773047d19f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=3302&q=80" alt="birthday-cake" class="bcake__img"> --}}
-              
-              <video width="640" height="360" controls>
-                  <source src="{{ asset(Storage::url($file)) }}" type="audio/mpeg">
-                              Your browser does not support the audio tag.
-                  </video>
-                  <br>    
-             <button class="font-semibold text-lg bg-red-500 hover:bg-grey-400 text-white py-1 px-8 rounded-full"type="submit">Delete File</button>
-             <br>
-             <br>
-              <a href="{{ asset(Storage::url($file)) }}"
-              class="font-semibold text-lg bg-blue-500 hover:bg-grey-400 text-white py-1 px-8 rounded-full">Download Audio
-             </a>
-            </div>
-            <div class="bcake__content">
-              <div class="bcake__title">
-                <h2 class="bcake__heading">
-                    <h2 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif"><strong>{{ basename($file) }}</strong></h2>
-                    {{-- <option value="{{ $file }}">{{ basename($file) }}</option> --}}
-                   <br>
-                </h1>
-                <div class="bcake__tag bcake__tag--1">#Colorful</div>
-                <div class="bcake__tag bcake__tag--2">#bakemaster</div>
-              </div>
-               <p class="bcake__description">
-                {{-- {{ $post->title }} --}}
-              Perfect for a party, this rainbow-cake screams 'celebrate'! Super creamy vanilla icing fill with moist for a showstopping cake that adults and kids will love.
-            </p>
-              <div class="bcake__details">
-                <p class="bcake__detail">
-                  <span class="emoji">🎉</span>
-                  450 Kcal
-                </p>
-                <p class="bcake__detail">
-                  <span class="emoji">⏱</span>
-                  30 min
-                </p>
-                <p class="bcake__detail">
-                  <span class="emoji">🌟</span>
-                  highly rated
-                </p>
-              </div>
-            </div>
-            <div class="bcake__price">
-              $ 12.99
-            </div>
-          </figure>
-          @endforeach
+        <br>
 
-        <section class="container mx-auto px-6 sm:px-12">
+        <section class="container mx-auto py-2 px-6 sm:px-12">
             <div >
-                <img src="{{ asset('images/gift.png') }}" alt="">
+                <figure class='bcake'>
+                    <div class='bcake__hero'>
+                        <img src="{{ asset('images/Ak.png') }}" alt="">
+                        {{-- <video width="640" height="360" controls>
+                            <source src="{{ asset(Storage::url($file)) }}" type="audio/mpeg">
+                                        Your browser does not support the audio tag.
+                            </video> --}}
+                      {{-- <img src="https://images.unsplash.com/photo-1552689486-f6773047d19f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=3302&q=80" alt="birthday-cake" class="bcake__img"> --}}
+                    </div>
+                    <div class="bcake__content">
+                      <div class="bcake__title">
+                        <h1 class="bcake__heading">
+                          <strong>Abishek Arunachalam</strong>
+                        </h1>
+                        <div class="bcake__tag bcake__tag--1">#laravel</div>
+                        <div class="bcake__tag bcake__tag--2">#Fullstack</div>
+                      </div>
+                       <p class="bcake__description" style="font-family:Georgia, 'Times New Roman', Times, serif">
+                        Dedicated and Efficient Full Stack Developer Specialized in Backend
+                        Programming using Laravel (Server-side) Framework. Technically
+                        proficient and analytical problem solver with calm and focused
+                        demeanour.
+                        
+                    </p>
+                      <div class="bcake__details">
+                        <p class="bcake__detail">
+                          <span class="emoji">🎉</span>
+                          450 Kcal
+                        </p>
+                        <p class="bcake__detail">
+                          <span class="emoji">⏱</span>
+                          30 min
+                        </p>
+                        <p class="bcake__detail">
+                          <span class="emoji">🌟</span>
+                          highly rated
+                        </p>
+                      </div>
+                    </div>
+                    <div class="bcake__price">
+                      Time
+                    </div>
+                  </figure>
                 {{-- <iframe width="560" height="315" src="https://www.youtube.com/embed/JzPfMbG1vrE"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
