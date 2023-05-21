@@ -21,16 +21,17 @@ use App\Http\Controllers\Admin\{
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view ('welcome');
 });
 
-Route::get('welcome',[PostController::class,'Admin\PostController@show']);
-Route::get('welcome/{id}',[PostController::class,'Admin\PostController@show']);
-// Route::get('/','ProductController@index')->name('index');
-
-
+// Route::get('welcome',[PostController::class,'Admin\PostController@show']);
+// Route::get('welcome/{id}',[PostController::class,'Admin\PostController@show']);
+// Route::get('/product','ProductController@index')->name('index');
 Route::get('/admin/upload',[PageController::class,'uploadpage']);
-
+// Route::get('/product',[ProductController::class],'products.index');
+Route::get('/admin/products',[App\Http\Controllers\Admin\ProductController::class,'index'])
+->name('products.index');
+// Route::get('/product',[App\Http\Controllers\Admin\ProductController::class])
 
 Route::get('/test-mail',function(){
 
@@ -76,9 +77,22 @@ Route::namespace('App\Http\Controllers\Admin')->name('admin.')->prefix('admin')
         Route::resource('permissions','PermissionController');
         Route::resource('users','UserController');
         Route::resource('posts','PostController');
+        Route::resource('products','ProductController');
 
         Route::get('/profile',[ProfileController::class,'index'])->name('profile');
         Route::put('/profile-update',[ProfileController::class,'update'])->name('profile.update');
         Route::get('/mail',[MailSettingController::class,'index'])->name('mail.index');
         Route::put('/mail-update/{mailsetting}',[MailSettingController::class,'update'])->name('mail.update');
 });
+
+
+
+// Route::get('/clear', function () {
+//     Artisan::call('cache:clear');
+//     Artisan::call('config:clear');
+//     Artisan::call('config:cache');
+//     Artisan::call('view:clear');
+//     Artisan::call('route:clear');
+//     Artisan::call('optimize');
+//     return "Cleared!";
+// });

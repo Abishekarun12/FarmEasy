@@ -78,7 +78,7 @@ class PostController extends Controller
     $data['user_id'] = Auth::user()->id;
     $Post = Post::create($data);
     return redirect()->back()->withSuccess('Post created !!!');
-    return view('post.index', compact('file','path','fileType','title','description',));
+    return view('post.index',  compact('posts', 'fileType', 'title', 'description'),['posts'=>$Post]);
         //Info Collection
        
     }
