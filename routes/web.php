@@ -24,12 +24,13 @@ Route::get('/', function () {
     return view ('welcome');
 });
 
-// Route::get('welcome',[PostController::class,'Admin\PostController@show']);
+// Route::get('/admin/posts',[PostController::class,'Admin\PostController@show']);
+// Route::get('/admin/posts',[PostController::class,'Admin\PostController@store']);
 // Route::get('welcome/{id}',[PostController::class,'Admin\PostController@show']);
 // Route::get('/product','ProductController@index')->name('index');
 Route::get('/admin/upload',[PageController::class,'uploadpage']);
 // Route::get('/product',[ProductController::class],'products.index');
-Route::get('/admin/products',[App\Http\Controllers\Admin\ProductController::class,'index'])
+Route::get('/products',[App\Http\Controllers\Admin\ProductController::class,'index'])
 ->name('products.index');
 // Route::get('/product',[App\Http\Controllers\Admin\ProductController::class])
 
